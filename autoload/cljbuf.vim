@@ -1,6 +1,8 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
+let g:cljbuf#max_line_length = get(g:, 'cljbuf#max_line_length', 512)
+
 let s:last_sexp = ''
 
 function! cljbuf#eval_and_echo(sexp) abort

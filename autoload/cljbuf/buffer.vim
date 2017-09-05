@@ -61,10 +61,15 @@ function! cljbuf#buffer#append(lines) abort
   let current_window = bufwinnr(bufnr('%'))
   call s:focus_window(bufwinnr(g:cljbuf#buffer#info['bufnr']))
   setlocal modifiable
+
   for line in a:lines
+    if g:cljbuf#max_line_length > 0 && strlen(line) > g:cljbuf#max_line_length
+      let line = strpart(line, 0, g:cljbuf#max_line_length) . ' ...'
+    endif
     call append(line('$'), line)
   endfor
   call cursor(line('$'), 0) " move cursor to bottom
+
   setlocal nomodifiable
   call s:focus_window(bufwinnr(current_window))
 endfunction
