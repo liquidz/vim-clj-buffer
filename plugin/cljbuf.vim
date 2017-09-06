@@ -13,8 +13,8 @@ command!          CljbufClear       call cljbuf#buffer#clear()
 command! -nargs=1 CljbufEval        call cljbuf#eval(<q-args>)
 command!          CljbufOpen        call cljbuf#buffer#open()
 command!          CljbufRepeatLast  call cljbuf#repeat_last_eval()
-command!          CljbufTestAll     call cljbuf#test_all()
-command!          CljbufTestFile    call cljbuf#test_file()
+command!          CljbufTestAll     call cljbuf#test#all()
+command!          CljbufTestFile    call cljbuf#test#file()
 command!          CljbufFocusBuffer call cljbuf#buffer#focus()
 
 nnoremap <silent> <Plug>(cljbuf_clear)        :<C-u>CljbufClear<CR>
